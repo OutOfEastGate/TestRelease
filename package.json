@@ -1,4 +1,30 @@
 {
+  "name": "@anyesu/semantic-release-test",
+  "version": "0.0.0-development",
+  "description": "semantic-release-test",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "echo build success.",
+    "semantic-release": "dotenv -c -- semantic-release",
+    "semantic-release:local": "dotenv -c -- semantic-release --no-ci"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OutOfEastGate/TestRelease.git"
+  },
+  "author": "anyesu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OutOfEastGate/TestRelease/issues"
+  },
+  "homepage": "https://github.com/OutOfEastGate/TestRelease#readme",
+  "files": [
+    "src"
+  ],
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
