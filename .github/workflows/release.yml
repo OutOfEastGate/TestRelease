@@ -8,14 +8,17 @@ on:
       - "*.x" # maintenance releases such as 15.x
 
 jobs:
-  release:
+  first_job:
+    name: My First Job
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - run: npx semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    - name: first_step
+    env:
+      START_STR: Hi!
+      USER_NAME: WHT
+    run: |
+      echo $START_STR $USER_NAME
+  second_job:
+    name: My Second Job
+    needs: first_job
+    runs-on: ubuntu-latest
