@@ -1,24 +1,26 @@
 name: Release
 on:
+  repository_dispatch:
+    types: [ semantic-release ]
   push:
     branches:
+      - main
       - master
+      - next
+      - beta
+      - "*.x" # maintenance releases such as 15.x
+
 jobs:
   release:
-    name: Release
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Setup Node
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Install
-        run: yarn
-      - name: Release
+      - run: npm i
+      - run: npm run build
+      - run: npm run release
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: npx semantic-release
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

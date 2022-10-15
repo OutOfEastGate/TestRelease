@@ -1,12 +1,22 @@
 {
   "name": "@anyesu/semantic-release-test",
-  "version": "0.0.0-development",
+  "version": "3.8.1",
   "description": "semantic-release-test",
   "main": "src/index.js",
   "scripts": {
     "build": "echo build success.",
+    "release": "npm run semantic-release",
+    "release:beta": "standard-version --release-as major --prerelease beta",
+    "release:major": "standard-version --release-as major",
+    "release:minor": "standard-version --release-as minor",
+    "release:patch": "standard-version --release-as patch",
     "semantic-release": "dotenv -c -- semantic-release",
     "semantic-release:local": "dotenv -c -- semantic-release --no-ci"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
@@ -14,20 +24,26 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/OutOfEastGate/TestRelease.git"
+    "url": "https://github.com/iewgggg/semantic-release-test.git"
   },
-  "author": "anyesu",
+  "author": "iewgggg",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/OutOfEastGate/TestRelease/issues"
+    "url": "https://github.com/iewgggg/semantic-release-test/issues"
   },
-  "homepage": "https://github.com/OutOfEastGate/TestRelease#readme",
+  "homepage": "https://github.com/iewgggg/semantic-release-test#readme",
   "files": [
     "src"
   ],
   "devDependencies": {
-    "@semantic-release/changelog": "^6.0.1",
+    "@commitlint/cli": "^17.0.0",
+    "@commitlint/config-conventional": "^17.0.0",
+    "@commitlint/types": "^17.0.0",
     "@semantic-release/git": "^10.0.1",
-    "semantic-release": "^19.0.5"
+    "conventional-changelog-cmyr-config": "^2.0.4",
+    "dotenv-cli": "^4.0.0",
+    "husky": "^4.3.0",
+    "semantic-release": "^19.0.2",
+    "standard-version": "^9.0.0"
   }
 }
