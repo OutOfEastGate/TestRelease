@@ -22,3 +22,5 @@ jobs:
     name: My Second Job
     needs: first_job
     runs-on: ubuntu-latest
+    run: |
+      echo 'Hello'
