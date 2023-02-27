@@ -11,16 +11,16 @@ jobs:
   first_job:
     name: My First Job
     runs-on: ubuntu-latest
-      steps:
-        - name: 拉取最新提交的代码
-          uses: actions/checkout@v3
+    steps:
+      - name: 拉取最新提交的代码
+        uses: actions/checkout@v3
 
-        - name: 设置jdk
-          uses: actions/setup-java@v3
-          with:
-            distribution: 'temurin'
-            java-version: '17'
-            cache: 'maven'
+      - name: 设置jdk
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'maven'
 
-        - name: 项目打包
-          run: mvn package
+      - name: 项目打包
+        run: mvn package
