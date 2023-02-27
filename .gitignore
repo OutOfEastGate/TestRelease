@@ -267,3 +267,7 @@ dist
 /dist/
 package-lock.json
 yarn.lock
+
+target/**
+
+.idea/**
