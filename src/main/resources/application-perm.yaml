@@ -1,0 +1,4 @@
+permission:
+  pathNoNeedToken:
+    - "/login"
+    - "/callback"

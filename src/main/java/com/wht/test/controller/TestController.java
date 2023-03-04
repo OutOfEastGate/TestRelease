@@ -1,6 +1,6 @@
 package com.wht.test.controller;
 
-import com.wht.test.client.Restlut;
+import com.wht.test.client.Result;
 import com.wht.test.service.TimeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +18,7 @@ public class TestController {
     TimeService timeService;
 
     @GetMapping("/hello")
-    public Restlut test() {
+    public Result test() {
         return timeService.test();
     }
 }
