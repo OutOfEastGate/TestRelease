@@ -1,0 +1,10 @@
+$color: rgb(237, 235, 235);
+body{
+    background-color: $color;
+    //禁止文字选中
+    user-select: none;
+}
+img{
+    //禁止脱线拖动
+    -webkit-user-drag: none;
+}
