@@ -1,8 +1,9 @@
-# semantic-release-test [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+# Jenkins + Github Action + Casdoor 开发示例
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![GitHub Actions](https://github.com/OutOfEastGate/TestRelease/actions/workflows/release.yml/badge.svg)](https://github.com/OutOfEastGate/TestRelease/actions)
 
-see [Releases](https://github.com/iewgggg/semantic-release-test/releases)
+## 技术栈
 
-### Release Action Button
-***
-
-[![Run Action](https://github-action-button.firebaseapp.com/buttons/simple.svg?name=semantic-release&eventType=semantic-release&type=simple&action=dispatch)](https://github-action-button.firebaseapp.com/repos/iewgggg/semantic-release-test/button?name=semantic-release&eventType=semantic-release&type=simple&action=dispatch)
+![](https://www.vectorlogo.zone/logos/reactjs/reactjs-ar21.svg)
+![](https://www.vectorlogo.zone/logos/springio/springio-ar21.svg)
+![](https://www.vectorlogo.zone/logos/jenkins/jenkins-ar21.svg)
