@@ -28,7 +28,7 @@ jobs:
       - name: 上传报告到Codecov
         uses: codecov/codecov-action@v3
         with:
-          token: ${{ secretes.CODECOV_TOKEN }}
+          token: ${{ secrets.CODECOV_TOKEN }}
 
 #       - name: 项目打包
 #         run: mvn package
