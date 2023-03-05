@@ -35,6 +35,10 @@ interface CasdoorLoginRes {
     }
 }
 
+interface StringRes {
+    data:string
+}
+
 interface GetAllUserRes {
     data:[
         {

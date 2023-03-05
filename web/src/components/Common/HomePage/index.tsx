@@ -1,9 +1,16 @@
 import React from 'react';
-import { Col, Row } from 'antd';
 import RotationChat from './RotationChart'
+import { ProForm, ProFormText } from '@ant-design/pro-components';
 
 const App: React.FC = () => (
     <div>
+        <ProForm
+            onFinish={async (values) => {
+                console.log(values);
+            }}
+        >
+            <ProFormText name="name" label="姓名" />
+        </ProForm>
         <RotationChat></RotationChat>
     </div>
 );

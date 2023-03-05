@@ -31,12 +31,14 @@ public class LoginInterceptor implements HandlerInterceptor {
     private CasdoorAuthService casdoorAuthService;
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        //设置跨域
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         setCorsConfig(response);
         String requestURI = request.getRequestURI();
         String token = request.getHeader("Authorization");
         if (!(handler instanceof HandlerMethod)) {
+            return true;
+        }
+        if (!requestURI.startsWith("/api")) {
             return true;
         }
         if (permissionConfig.getPathNoNeedToken().contains(requestURI)) {

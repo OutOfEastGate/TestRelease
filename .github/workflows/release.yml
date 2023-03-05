@@ -22,5 +22,13 @@ jobs:
           java-version: '17'
           cache: 'maven'
 
-      - name: 项目打包
-        run: mvn package
+      - name: 执行测试
+        run: mvn clean test cobertura:cobertura
+
+      - name: 上传报告到Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrites.CODECOV_TOKEN }}
+
+#       - name: 项目打包
+#         run: mvn package

@@ -56,7 +56,8 @@ const MainMenu: React.FC = () => {
     }
 
     for(let i=1;i<items.length;i++){
-      if(items[i]!['children'] && items[i]!['children'].find(findKey)){
+      // @ts-ignore
+        if(items[i]!['children'] && items[i]!['children'].find(findKey)){
         firstOpenKey = items[i]!.key as string;
         break;
       }

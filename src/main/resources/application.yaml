@@ -4,3 +4,6 @@ server:
 spring:
   profiles:
     active: auth,perm
+  web:
+    resources:
+      static-locations: [classpath:/static/]

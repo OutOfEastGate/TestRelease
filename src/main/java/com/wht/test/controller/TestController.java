@@ -4,6 +4,7 @@ import com.wht.test.client.Result;
 import com.wht.test.service.TimeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @createDate 2023/2/27 20:06
  */
 @RestController
+@RequestMapping("/api")
 public class TestController {
     @Autowired
     TimeService timeService;

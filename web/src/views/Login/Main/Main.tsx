@@ -54,9 +54,12 @@ const LoginMain: React.FC = () => {
     })
   }
 
-  const getCasdoorLoginUrl = () => {
-    window.location.href = "http://localhost:8081/login"
+  const casdoorLogin = () => {
+    getCasdoorLoginUrlAPI({origin:window.location.origin}).then((res)=>{
+      window.location.href = res.data
+    })
   }
+
 
   const contextValue = useMemo(() => ({ name: 'Ant Design' }), []);
 
@@ -104,7 +107,7 @@ const LoginMain: React.FC = () => {
           Log in
         </Button>
         Or    
-        <Button type="primary" onClick={getCasdoorLoginUrl}>
+        <Button type="primary" onClick={casdoorLogin}>
           Casdoor Login
         </Button>
       </Form.Item>

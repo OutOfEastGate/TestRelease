@@ -1,10 +1,9 @@
 import axios from "axios"
 
 //创建axios实例
-
 const instance = axios.create({
     //基本请求路径抽取
-    baseURL:"http://localhost:8081",
+    baseURL:"http://localhost:8081/api/",
     timeout:20000,
     headers: {
         Authorization : localStorage.getItem('token')
@@ -13,7 +12,6 @@ const instance = axios.create({
 
 //请求拦截器
 instance.interceptors.request.use((config)=>{
-
     return config
 },err=>{
     return Promise.reject(err)

@@ -21,7 +21,7 @@ const deleteUser = (name: string) => {
     // showMessage("info","正在开发中")
 }
 
-class UserTable extends React.Component {
+class UserTable extends React.Component<any,any> {
     constructor(props: any) {
         super(props)
     }

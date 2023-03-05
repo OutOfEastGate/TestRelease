@@ -1,6 +1,5 @@
 import Home from "@/views/Home";
 import About from "@/views/about/About";
-import Page from "@/views/Page/Page";
 import NotFound from "@/components/Common/NotFound";
 import LoginView from "@/views/Login/index"
 import Role from "@/components/Common/Role/index"
@@ -13,7 +12,7 @@ import HomePage from "@/components/Common/HomePage"
 const routes = [
     {
         path: "/",
-        element:<Navigate to="/homeoage"/>
+        element:<Navigate to="/homepage"/>
     },
     {
         path: "/login",
@@ -34,10 +33,6 @@ const routes = [
             {
                 path: "/users",
                 element: <User/>
-            },
-            {
-                path: "/page",
-                element: <Page/>
             },
             {
                 path: "/about",
