@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Breadcrumb, Layout, theme } from 'antd';
+import {Avatar, Breadcrumb, Layout, Space, theme} from 'antd';
 import { Outlet } from "react-router-dom"
 import MainMenu from '@/components/MainMenu';
+import {UserOutlined} from "@ant-design/icons";
+import LineInfo from "@/views/UserInfo/LineInfo";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -20,16 +22,13 @@ const Home: React.FC = () => {
       </Sider>
       <Layout className="site-layout">
         <Header style={{ padding: 0, background: colorBgContainer }}>
-            {/* <Breadcrumb style={{ margin: '16px 16px' }}>
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-            </Breadcrumb> */}
+            <LineInfo></LineInfo>
           </Header>
 
         <Content style={{ margin: '16px 16px 0px' }} className="site-layout-background">
           <Outlet />
         </Content>
-        <Footer style={{ textAlign: 'center',padding:0, lineHeight:"48px" }}>Ant Design ©2018 Created by Ant UED</Footer>
+        <Footer style={{ textAlign: 'center',padding:0, lineHeight:"48px" }}><Avatar src="https://cdn.casbin.org/img/casbin.svg" /> Casdoor + springboot-3.0 ©2023 Created by WHT</Footer>
       </Layout>
     </Layout>
   );

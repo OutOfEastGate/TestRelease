@@ -31,7 +31,7 @@ function getItem(
 const items: MenuItem[] = [
     getItem("Homepage","/homepage",<PieChartOutlined />),
     getItem("Users","/users",<UserOutlined />),
-    getItem('Role', '/role', <PieChartOutlined />),
+    getItem('Editor', '/edit', <PieChartOutlined />),
     getItem('Permission', '/permission', <DesktopOutlined />),
     getItem('Chat', '/chat', <TeamOutlined />, [getItem('People Online', '/online'), getItem('Team 2', '/8')]),
     getItem('Files', '/file', <FileOutlined />),

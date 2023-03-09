@@ -8,7 +8,10 @@ import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpSession;
 import org.casbin.casdoor.entity.CasdoorUser;
 import org.casbin.casdoor.exception.CasdoorAuthException;
+import org.casbin.casdoor.service.CasdoorAccountService;
 import org.casbin.casdoor.service.CasdoorAuthService;
+import org.casbin.casdoor.service.CasdoorResourceService;
+import org.casbin.casdoor.service.CasdoorUserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,20 +24,28 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @createDate 2023/3/3 12:58
  */
 @Controller
-@RequestMapping("/api")
 public class AccountController {
     @Resource
     private CasdoorAuthService casdoorAuthService;
+    @Resource
+    private CasdoorAccountService casdoorAccountService;
+    CasdoorResourceService casdoorResourceService;
+    CasdoorUserService casdoorUserService;
 
     @ResponseBody
-    @RequestMapping("/getLoginUrl")
+    @RequestMapping("/api/getLoginUrl")
     public Result login(String origin) {
-        String signinUrl = casdoorAuthService.getSigninUrl("http://"+origin+"/callback");
+        String signinUrl;
+        if (origin.startsWith("http")) {
+            signinUrl = casdoorAuthService.getSigninUrl(origin+"/api/callback");
+        }else {
+            signinUrl = casdoorAuthService.getSigninUrl("http://"+origin+"/callback");
+        }
         return Result.success(signinUrl);
     }
 
     @ResponseBody
-    @RequestMapping("/callback")
+    @RequestMapping("/api/callback")
     public Object casdoorCallBack(String code, String state, HttpSession httpSession) {
         String token = "";
         CasdoorUser user = null;

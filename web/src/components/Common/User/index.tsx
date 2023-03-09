@@ -32,7 +32,6 @@ class UserList extends React.Component<any,any> {
     }
     
     render() {
-
         if(this.state.users.length === 0) {
             getAllUsersAPI().then((res) => {
                 this.setState({

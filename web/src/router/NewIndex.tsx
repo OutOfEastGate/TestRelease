@@ -8,6 +8,7 @@ import CallBack from "@/components/Common/Callback";
 import User from "@/components/Common/User"
 import { Navigate } from "react-router-dom";
 import HomePage from "@/components/Common/HomePage"
+import Editor from "@/components/Common/Edit"
 
 const routes = [
     {
@@ -39,8 +40,8 @@ const routes = [
                 element: <About/>
             },
             {
-                path: "/role",
-                element: <Role />
+                path: "/edit",
+                element: <Editor />
             },
             {
                 path: "/permission",

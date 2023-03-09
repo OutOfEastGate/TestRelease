@@ -2,12 +2,19 @@ name: Release
 on:
   repository_dispatch:
     types: [ semantic-release ]
-  push:
+  pull_request:
+    types: closed
     branches:
       - main
-      - "*.x" # maintenance releases such as 15.x
 
 jobs:
+  if_merged:
+    name: scan if merged
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo
+        run: echo The PR was merged
   first_job:
     name: My First Job
     runs-on: ubuntu-latest
