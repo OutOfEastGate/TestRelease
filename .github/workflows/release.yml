@@ -6,6 +6,8 @@ on:
     types: closed
     branches:
       - main
+    paths:
+      - 'src/main/**'
 
 jobs:
   if_merged:

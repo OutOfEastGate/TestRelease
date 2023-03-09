@@ -27,10 +27,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class AccountController {
     @Resource
     private CasdoorAuthService casdoorAuthService;
-    @Resource
-    private CasdoorAccountService casdoorAccountService;
-    CasdoorResourceService casdoorResourceService;
-    CasdoorUserService casdoorUserService;
 
     @ResponseBody
     @RequestMapping("/api/getLoginUrl")
