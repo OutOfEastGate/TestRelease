@@ -3,6 +3,7 @@ package com.wht.test.casdoor;
 import jakarta.annotation.Resource;
 import org.casbin.casdoor.entity.CasdoorUser;
 import org.casbin.casdoor.service.CasdoorUserService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -24,5 +25,7 @@ public class CasdoorServiceTest {
         for (CasdoorUser user : casdoorUserService.getUsers()) {
             System.out.println(user);
         }
+        Assertions.assertNotNull(casdoorUserService.getUsers());
     }
+
 }
