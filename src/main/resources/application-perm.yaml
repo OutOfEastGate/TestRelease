@@ -2,4 +2,3 @@ permission:
   pathNoNeedToken:
     - "/api/getLoginUrl"
     - "/api/callback"
-    - "/api/static"

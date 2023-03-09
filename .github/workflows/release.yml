@@ -3,7 +3,6 @@ on:
   repository_dispatch:
     types: [ semantic-release ]
   push:
-    types: closed
     branches:
       - main
     paths:
@@ -12,7 +11,7 @@ on:
 jobs:
   if_merged:
     name: scan if merged
-    if: github.event.pull_request.merged == true
+    if: github.repository == 'OutOfEastGate/TestRelease'
     runs-on: ubuntu-latest
     steps:
       - name: echo
