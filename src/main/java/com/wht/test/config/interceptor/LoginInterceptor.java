@@ -1,9 +1,10 @@
-package com.wht.test.config;
+package com.wht.test.config.interceptor;
 
 import com.wht.test.client.exception.CustomException;
 import com.wht.test.client.exception.ErrorCode;
 import com.wht.test.client.properties.PermissionConfig;
 import com.wht.test.client.util.StorageUtil;
+import com.wht.test.config.interceptor.check.IpLimitCheck;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -28,11 +29,16 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Autowired
     PermissionConfig permissionConfig;
     @Resource
+    IpLimitCheck ipLimitCheck;
+    @Resource
     private CasdoorAuthService casdoorAuthService;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
+        //跨域
         setCorsConfig(response);
+        //ip限流
+        ipLimitCheck.ipLimitCheck(request);
         String requestURI = request.getRequestURI();
         String token = request.getHeader("Authorization");
         if (!(handler instanceof HandlerMethod)) {

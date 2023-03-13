@@ -3,7 +3,7 @@ server:
 
 spring:
   profiles:
-    active: auth,perm
+    active: auth,perm,data
   web:
     resources:
       static-locations: [classpath:/static/]

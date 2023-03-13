@@ -1,4 +1,4 @@
-package com.wht.test.config;
+package com.wht.test.config.exception;
 
 import com.wht.test.client.Result;
 import com.wht.test.client.exception.CustomException;

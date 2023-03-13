@@ -1,5 +1,5 @@
 casdoor:
-  endpoint: http://110.42.136.235:8000
+  endpoint: http://******:8000
   client-id: 98ccc5ce21f4afed4ebe
   client-secret: 95d24ab2fa8833c897c11fcfdde214d4b9f8bc93
   organization-name: built-in
