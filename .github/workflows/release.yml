@@ -30,7 +30,7 @@ jobs:
           java-version: '17'
           cache: 'maven'
 
-      - name: 执行测试
+      - name: 项目打包
         run: mvn package -DskipTests=true
 
 #       - name: 上传报告到Codecov
