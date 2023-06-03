@@ -1,0 +1,27 @@
+server:
+  port: 8081
+
+spring:
+  mail:
+    default-encoding: UTF-8
+    username: ${wht.back.qq}@qq.com
+    password: hyvpbnluecdpbajb
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
+    host: smtp.qq.com
+    port: 587
+  servlet:
+    multipart:
+      max-file-size: 300MB
+      max-request-size: 500MB
+  profiles:
+    active: auth,perm,data
+
+wht:
+  back:
+    domain: "***"
+    qq: "***"
+    endpoint: "***"

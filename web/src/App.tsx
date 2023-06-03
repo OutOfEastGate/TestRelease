@@ -1,6 +1,9 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
+import './i18n'
+import './components/Setting'
 import { useRoutes,useLocation,useNavigate } from "react-router-dom"
 import router from "@/router/NewIndex"
+import SSEConnection from "@/request/Sse";
 
 function ToLogin() {
   const navigateTo = useNavigate()
@@ -31,7 +34,9 @@ function BeforeRouterEnter() {
     return <ToLogin/>
   }
   if(token && location.pathname === "/login") {
-    return <ToHome/>
+    return <>
+      <ToHome/>
+    </>
   }
   return outlet
 }
@@ -40,7 +45,8 @@ function BeforeRouterEnter() {
 function App() {
   return (
     <div>
-      <BeforeRouterEnter></BeforeRouterEnter>
+      <SSEConnection/>
+      <BeforeRouterEnter/>
     </div>
   )
 }

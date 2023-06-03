@@ -3,6 +3,7 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input, notification } from 'antd';
 import type { NotificationPlacement } from 'antd/es/notification/interface';
 import { loginAPI,getCasdoorLoginUrlAPI } from '@/request/api';
+import {showMessage} from "@/components/Setting";
 const Context = React.createContext({ name: 'Default' });
 
 const LoginMain: React.FC = () => {
@@ -42,7 +43,8 @@ const LoginMain: React.FC = () => {
 
   //点击登录
   const gotoLogin = () => {
-    loginAPI({userName:usernameVal,userPassword:passwordVal}).then((res)=>{
+    showMessage("info","请使用casdoor统一登录")
+    loginAPI({username:usernameVal,password:passwordVal}).then((res)=>{
       if(res.success === false) {
         openNotification('topLeft')
       }else if(res.data.token && res.data.userId) {
@@ -61,58 +63,53 @@ const LoginMain: React.FC = () => {
   }
 
 
-  const contextValue = useMemo(() => ({ name: 'Ant Design' }), []);
-
   return (
-    <Context.Provider value={contextValue}>
-      {contextHolder}
+    <div>
+      <p>Casdoor 与 SpringBoot 3.0 开发， 集成Jenkins自动部署</p>
+      <br/>
       <Form
-      name="normal_login"
-      className="login-form"
-      initialValues={{ remember: true }}
-      onFinish={onFinish}
-    >
-      <Form.Item
-        name="username"
-        rules={[{ required: true, message: 'Please input your Username!' }]}
+          name="normal_login"
+          className="login-form"
+          initialValues={{ remember: true }}
+          onFinish={onFinish}
       >
-        <Input 
-          prefix={<UserOutlined className="site-form-item-icon" />} 
-          placeholder="Username"
-          onChange={usernameChange} />
-      </Form.Item>
-      <Form.Item
-        name="password"
-        rules={[{ required: true, message: 'Please input your Password!' }]}
-      >
-        <Input
-          prefix={<LockOutlined className="site-form-item-icon" />}
-          type="password"
-          placeholder="Password"
-          onChange={passwordChange}
-        />
-      </Form.Item>
-      <Form.Item>
-        <Form.Item name="remember" valuePropName="checked" noStyle>
-          <Checkbox>Remember me</Checkbox>
+        <Form.Item
+            name="username"
+            rules={[{ required: true, message: '请输入用户名!' }]}
+        >
+          <Input
+              prefix={<UserOutlined className="site-form-item-icon" />}
+              placeholder="用户名"
+              onChange={usernameChange} />
+        </Form.Item>
+        <Form.Item
+            name="password"
+            rules={[{ required: true, message: '请输入密码!' }]}
+        >
+          <Input
+              prefix={<LockOutlined className="site-form-item-icon" />}
+              type="password"
+              placeholder="密码"
+              onChange={passwordChange}
+          />
+        </Form.Item>
+        <Form.Item>
+          <Form.Item name="remember" valuePropName="checked" noStyle>
+            <Checkbox>记住我</Checkbox>
+          </Form.Item>
+
+          <a className="login-form-forgot" href="">
+            忘记密码
+          </a>
         </Form.Item>
 
-        <a className="login-form-forgot" href="">
-          Forgot password
-        </a>
-      </Form.Item>
-
-      <Form.Item>
-        <Button type="primary" htmlType="submit" className="login-form-button" onClick={gotoLogin}>
-          Log in
-        </Button>
-        Or    
-        <Button type="primary" onClick={casdoorLogin}>
-          Casdoor Login
-        </Button>
-      </Form.Item>
-    </Form>
-    </Context.Provider>
+        <Form.Item>
+          <button className="btn" onClick={gotoLogin}> 登录
+          </button>  或者 <button className="btn" onClick={casdoorLogin}> 使用Casdoor认证登录
+          </button>
+        </Form.Item>
+      </Form>
+    </div>
   );
 };
 

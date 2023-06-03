@@ -1,0 +1,13 @@
+permission:
+  pathNoNeedToken:
+    - "/"
+    - "/api/sse/get"
+    - "/api/getLoginUrl"
+    - "/api/callback"
+    - "/api/login"
+    - "/api/getAllArticle"
+  pathForAdmin:
+    - "/api/sse/send"
+    - "/api/deleteUser"
+    - "/api/deleteArticleById"
+    - "/api/deleteFileByUrl"

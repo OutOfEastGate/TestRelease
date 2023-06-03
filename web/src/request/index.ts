@@ -1,9 +1,10 @@
 import axios from "axios"
+import {backPath} from "@/components/Conf";
 
 //创建axios实例
 const instance = axios.create({
     //基本请求路径抽取
-    baseURL:"http://localhost:8081/api/",
+    baseURL:"http://" + backPath + "/api",
     timeout:20000,
     headers: {
         Authorization : localStorage.getItem('token')

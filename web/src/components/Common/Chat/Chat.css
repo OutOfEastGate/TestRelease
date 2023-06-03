@@ -1,0 +1,48 @@
+.chatroom-wrapper {
+    display: flex;
+    height: 100vh;
+}
+
+.member-list {
+    width: 300px;
+    height: 100vh;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.chat-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    height: 60px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: #ebebeb;
+}
+
+.chat-input {
+    height: 60px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+}
+
+.chat-room-input {
+    width: 200px;
+    height: 100px;
+    margin: auto;
+    /* 其他样式 */
+}

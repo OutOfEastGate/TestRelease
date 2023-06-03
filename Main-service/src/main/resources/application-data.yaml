@@ -1,0 +1,38 @@
+spring:
+  data:
+    redis:
+      host: ${wht.back.endpoint}
+      password: 1946066280Tao
+      database: 0
+      port: 6379
+    mongodb:
+      uri: mongodb://admin:19460@${wht.back.endpoint}:27017/mydb?authSource=admin&authMechanism=SCRAM-SHA-256
+#  rabbitmq:
+#    host: 192.168.152.131
+#    port: 30004
+#    username: admin
+#    password: 123456
+#    virtual-host: /
+  file-storage:
+    default-platform: qiniu
+    thumbnail-suffix: ".min.jpg"
+    qiniu-kodo:
+      - platform: qiniu
+        enable-storage: true
+        access-key: uzKMcf_E8Mcw5l2XnMNj0djpoGiSoHtuRzkpTRr8
+        secret-key: kPv_UuvmwAExrCxrMA7qIhrxzOd7ZIfZhEHLW9DF
+        bucket-name: wht-blog
+        domain: http://${wht.back.domain}/
+        base-path: app/
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${wht.back.endpoint}:3306/test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: 19460
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      logic-delete-field: isDeleted
+  mapper-locations: classpath:mappers/*.xml

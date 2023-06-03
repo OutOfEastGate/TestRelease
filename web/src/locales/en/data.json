@@ -1,0 +1,31 @@
+{
+  "common": {
+    "Announcement": "Announcement",
+    "Article": "Article",
+    "BlogManagement": "Blog Management",
+    "Chat": "Chat",
+    "Edit": "Edit",
+    "File": "File",
+    "FileType": "FileType",
+    "GlobalChat": "Global Chat",
+    "success": "success",
+    "SelectLanguage": "Select Language",
+    "Script": "Script",
+    "Homepage": "Homepage",
+    "Ip": "IP Message",
+    "MessageList": "MessageList",
+    "Notification": "Notification",
+    "Users": "Users"
+  },
+  "user": {
+    "LogOut": "Log Out",
+    "PersonalHomepage": "Personal Homepage"
+  },
+  "article": {
+    "LikeArticle": "Like Article"
+  },
+  "info": {
+    "Announcement": "Announcement",
+    "GotoChatPage": "GotoChatPage"
+  }
+}

@@ -9,6 +9,7 @@ const CallBack: React.FC = () => {
     getCasdoorLoginAPI({code:params.code,state:params.state}).then((res)=>{
         if(res.data.token) {
             localStorage.setItem("token",res.data.token)
+            localStorage.setItem("username",res.data.casdoorUser.name)
             window.location.href = "/"
         }
     })

@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            maxAge: 36000
+            alloweCredentials: true
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+      routes:
+        - id: search
+          uri: http://localhost:8082 #lb://search
+          predicates:
+            - Path=/api/search/**
+        - id: main
+          uri: http://localhost:8081 #lb://main
+          predicates:
+            - Path=/api/**

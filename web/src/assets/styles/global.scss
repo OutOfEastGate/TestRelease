@@ -1,8 +1,10 @@
-$color: rgb(237, 235, 235);
+$color: rgb(255, 255, 255);
 body{
+    //background-image: url('http://www.wanghongtao.xyz/app/file/645ba334020f5b934e6c2fb3.jpg');
+    background-size: cover;
     background-color: $color;
     //禁止文字选中
-    user-select: none;
+    //user-select: none;
 }
 img{
     //禁止脱线拖动
