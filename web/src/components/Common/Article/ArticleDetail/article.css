@@ -63,9 +63,9 @@
         --color-prettylights-syntax-string: #0a3069;
         --color-prettylights-syntax-variable: #953800;
         --color-prettylights-syntax-brackethighlighter-unmatched: #82071e;
-        --color-prettylights-syntax-invalid-illegal-text: #f6f8fa;
+        --color-prettylights-syntax-invalid-illegal-text: #121417;
         --color-prettylights-syntax-invalid-illegal-bg: #82071e;
-        --color-prettylights-syntax-carriage-return-text: #f6f8fa;
+        --color-prettylights-syntax-carriage-return-text: #15181c;
         --color-prettylights-syntax-carriage-return-bg: #cf222e;
         --color-prettylights-syntax-string-regexp: #116329;
         --color-prettylights-syntax-markup-list: #3b2300;
@@ -88,7 +88,7 @@
         --color-fg-muted: #57606a;
         --color-fg-subtle: #6e7781;
         --color-canvas-default: #ffffff;
-        --color-canvas-subtle: #f6f8fa;
+        --color-canvas-subtle: #0e0f11;
         --color-border-default: #d0d7de;
         --color-border-muted: hsla(210,18%,87%,1);
         --color-neutral-muted: rgba(175,184,193,0.2);

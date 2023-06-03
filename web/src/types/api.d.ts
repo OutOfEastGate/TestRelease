@@ -13,7 +13,7 @@ interface BaseRes {
     msg: string
 }
 
-interface LoginAPIRes {
+interface LoginAPIRes extends BaseRes{
     success:boolean;
     data:LoginDataRes
 }

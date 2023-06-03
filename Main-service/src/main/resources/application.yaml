@@ -19,6 +19,8 @@ spring:
       max-request-size: 500MB
   profiles:
     active: auth,perm,data
+  main:
+    allow-bean-definition-overriding: true
 
 wht:
   back:

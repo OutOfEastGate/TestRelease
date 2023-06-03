@@ -2,7 +2,7 @@ import React, { ChangeEvent, useState, useMemo} from 'react';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input, notification } from 'antd';
 import type { NotificationPlacement } from 'antd/es/notification/interface';
-import { loginAPI,getCasdoorLoginUrlAPI } from '@/request/api';
+import {loginAPI, getCasdoorLoginUrlAPI, visitorLogin} from '@/request/api';
 import {showMessage} from "@/components/Setting";
 const Context = React.createContext({ name: 'Default' });
 
@@ -43,16 +43,15 @@ const LoginMain: React.FC = () => {
 
   //点击登录
   const gotoLogin = () => {
-    showMessage("info","请使用casdoor统一登录")
-    loginAPI({username:usernameVal,password:passwordVal}).then((res)=>{
-      if(res.success === false) {
-        openNotification('topLeft')
-      }else if(res.data.token && res.data.userId) {
+    visitorLogin().then(res => {
+      if (res.msg === "success") {
         localStorage.setItem("token",res.data.token)
         localStorage.setItem("userId",res.data.userId)
-        openYesification('topLeft')
-        window.location.href = "/home"
-      } 
+        showMessage("success", "游客登录成功")
+        window.location.href = "/"
+      } else {
+        showMessage("error", res.msg)
+      }
     })
   }
 
@@ -104,7 +103,7 @@ const LoginMain: React.FC = () => {
         </Form.Item>
 
         <Form.Item>
-          <button className="btn" onClick={gotoLogin}> 登录
+          <button className="btn" onClick={gotoLogin}> 游客登录
           </button>  或者 <button className="btn" onClick={casdoorLogin}> 使用Casdoor认证登录
           </button>
         </Form.Item>

@@ -5,12 +5,14 @@ import com.wht.client.dto.LoginResultDto;
 import com.wht.client.exception.CustomException;
 import com.wht.client.exception.ErrorCode;
 import com.wht.client.form.UserLoginForm;
-import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpSession;
+import lombok.AllArgsConstructor;
+import lombok.val;
 import org.casbin.casdoor.entity.CasdoorUser;
 import org.casbin.casdoor.exception.CasdoorAuthException;
 import org.casbin.casdoor.service.CasdoorAuthService;
 import org.casbin.casdoor.service.CasdoorUserService;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,12 +26,15 @@ import java.io.IOException;
  * @author wht
  * @createDate 2023/3/3 12:58
  */
+@AllArgsConstructor
 @Controller
 public class AccountController {
-    @Resource
-    private CasdoorAuthService casdoorAuthService;
-    @Resource
-    CasdoorUserService casdoorUserService;
+
+    private final CasdoorAuthService casdoorAuthService;
+
+    private final CasdoorUserService casdoorUserService;
+
+    private final StringRedisTemplate stringRedisTemplate;
 
     /**
      * 获取casdoor登录地址
@@ -90,6 +95,15 @@ public class AccountController {
         LoginResultDto loginResultDto = new LoginResultDto();
         loginResultDto.setCasdoorUser(user);
         loginResultDto.setToken(token);
+        return Result.success(loginResultDto);
+    }
+
+    @ResponseBody
+    @RequestMapping("/api/visitor")
+    public Result<LoginResultDto> visitorLogin() {
+        String visitorToken = stringRedisTemplate.opsForValue().get("VISITOR_TOKEN");
+        CasdoorUser user = casdoorAuthService.parseJwtToken(visitorToken);
+        LoginResultDto loginResultDto = new LoginResultDto(visitorToken, user);
         return Result.success(loginResultDto);
     }
 }

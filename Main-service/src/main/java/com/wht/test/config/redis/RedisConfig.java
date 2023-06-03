@@ -23,4 +23,15 @@ public class RedisConfig {
         template.setValueSerializer(genericJackson2JsonRedisSerializer);
         return template;
     }
+
+    @Bean
+    public RedisTemplate<String, String> stringRedisTemplate(RedisConnectionFactory redisConnectionFactory) throws UnknownHostException {
+        RedisTemplate<String, String> template = new RedisTemplate();
+        template.setConnectionFactory(redisConnectionFactory);
+        GenericJackson2JsonRedisSerializer genericJackson2JsonRedisSerializer = new GenericJackson2JsonRedisSerializer();
+        RedisSerializer stringSerializer = new StringRedisSerializer();
+        template.setKeySerializer(stringSerializer);
+        template.setValueSerializer(genericJackson2JsonRedisSerializer);
+        return template;
+    }
 }

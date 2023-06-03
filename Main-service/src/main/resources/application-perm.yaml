@@ -6,6 +6,7 @@ permission:
     - "/api/callback"
     - "/api/login"
     - "/api/getAllArticle"
+    - "/api/visitor"
   pathForAdmin:
     - "/api/sse/send"
     - "/api/deleteUser"
