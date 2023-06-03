@@ -22,6 +22,6 @@ spring:
 
 wht:
   back:
-    domain: "***"
-    qq: "***"
-    endpoint: "***"
+    domain: ""
+    qq: ""
+    endpoint: ""
