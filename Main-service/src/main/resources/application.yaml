@@ -24,6 +24,6 @@ spring:
 
 wht:
   back:
-    domain: www.wanghongtao.xyz
-    qq: 1946066280
-    endpoint: 114.116.9.68
+    domain: ""
+    qq: ""
+    endpoint: ""
