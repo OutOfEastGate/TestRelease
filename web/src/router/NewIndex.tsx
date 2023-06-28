@@ -16,8 +16,10 @@ import HomePage from "@/components/Common/HomePage";
 import Notification from "@/components/Common/Notification"
 import Ip from "@/components/Common/Ip";
 import Announcement from "@/components/Common/Notification/Announcement";
+import Store from "@/components/Common/Permission/Store";
 // @ts-ignore
 import Script from "@/components/Common/Script";
+import System from "@/components/Common/System";
 
 const routes = [
     {
@@ -93,9 +95,17 @@ const routes = [
                 element: <Announcement></Announcement>
             },
             {
+                path: "/store",
+                element: <Store></Store>
+            },
+            {
                 path: "/script",
                 element: <Script></Script>
             },
+            {
+                path: "/system",
+                element: <System></System>
+            }
         ]
     },
     {

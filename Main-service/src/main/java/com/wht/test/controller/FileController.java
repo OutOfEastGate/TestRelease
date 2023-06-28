@@ -8,6 +8,7 @@ import com.wht.client.obj.FileTypeDo;
 import com.wht.test.service.FileDetailService;
 import com.wht.test.service.FileService;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,13 +21,13 @@ import java.util.List;
  * @author wht
  * @createDate 2023/4/27 16:57
  */
+@AllArgsConstructor
 @RequestMapping("/api")
 @RestController
 public class FileController {
-    @Autowired
-    FileService fileService;
-    @Autowired
-    FileDetailService fileDetailService;
+    private final FileService fileService;
+
+    private final FileDetailService fileDetailService;
 
     /**
      * 获取所有文件信息

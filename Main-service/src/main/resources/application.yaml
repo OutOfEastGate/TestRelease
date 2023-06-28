@@ -23,7 +23,9 @@ spring:
     allow-bean-definition-overriding: true
 
 wht:
+  fga:
+    url: http://192.168.240.128:8080
   back:
     domain: www.wanghongtao.xyz
-    qq: 1946066280
-    endpoint: 114.116.9.68
+    qq: ''
+    endpoint: ‘’

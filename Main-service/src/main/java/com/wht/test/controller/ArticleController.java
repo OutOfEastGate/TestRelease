@@ -8,6 +8,7 @@ import com.wht.client.form.EditArticleForm;
 import com.wht.client.form.IdForm;
 import com.wht.client.form.PageForm;
 import com.wht.client.obj.ArticleDo;
+import com.wht.test.config.aop.CacheAnnotation;
 import com.wht.test.service.ArticleService;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,11 +30,13 @@ public class ArticleController {
         this.articleService = articleService;
     }
 
+    @CacheAnnotation(cacheTime = "6000")
     @GetMapping("/getAllArticle")
     public Result<List<AllArticlesDto>> getAllArticle() {
         return Result.success(articleService.getAllArticle());
     }
 
+    @CacheAnnotation(cacheTime = "6000")
     @GetMapping("/getArticlesByPage")
     public Result<PageResult<List<AllArticlesDto>>> getArticlesByPage(PageForm pageForm) {
         return Result.success(articleService.getArticlesByPage(pageForm));

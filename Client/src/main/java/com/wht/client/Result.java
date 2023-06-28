@@ -3,6 +3,7 @@ package com.wht.client;
 import com.wht.client.exception.ErrorCode;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * description:
@@ -10,6 +11,7 @@ import lombok.Data;
  * @author wht
  * @createDate 2023/2/27 20:07
  */
+@NoArgsConstructor
 @AllArgsConstructor
 @Data
 public class Result<T> {
@@ -18,10 +20,6 @@ public class Result<T> {
     String msg;
 
     T data;
-
-    public Result() {
-
-    }
 
     public static Result<?> success() {
         Result result = new Result();

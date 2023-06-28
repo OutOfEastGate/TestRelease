@@ -1,4 +1,4 @@
-package com.wht.service;
+package com.wht.test.service;
 
 import org.casbin.casdoor.entity.CasdoorUser;
 import org.casbin.casdoor.service.CasdoorAuthService;

@@ -6,7 +6,6 @@ import {ProLayout} from "@ant-design/pro-components";
 import defaultProps from './_props'
 import i18n from "i18next";
 import {CommentOutlined, QuestionCircleOutlined} from "@ant-design/icons";
-import SSEConnection from "@/request/Sse";
 
 
 const Home: React.FC = () => {

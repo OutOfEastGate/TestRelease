@@ -1,6 +1,7 @@
 import {
     BugOutlined,
     ChromeFilled, CloudUploadOutlined,
+    ControlOutlined,
     CrownFilled, DesktopOutlined, GlobalOutlined, MehOutlined, PieChartOutlined, RadarChartOutlined,
     SmileFilled,
     TabletFilled, TeamOutlined, UserOutlined,
@@ -102,14 +103,39 @@ export default {
                 ]
             },
             {
+                path: '/permission',
+                name: i18n.t("common:PermissionCenter"),
+                icon: <ControlOutlined />,
+                routes:[
+                    {
+                        path:"/store",
+                        name:i18n.t("permission:StoreManage"),
+                    },
+                    {
+                        path:"/model",
+                        name:i18n.t("permission:ModelManage"),
+                    }
+                ]
+            },
+            {
                 path: '/script',
                 name: i18n.t("common:Script"),
                 icon: <BugOutlined />,
             },
             {
                 path: '/ip',
-                name: i18n.t("common:Ip"),
+                name: i18n.t("common:SystemInfo"),
                 icon: <RadarChartOutlined />,
+                routes:[
+                    {
+                        path:"/ip",
+                        name:i18n.t("common:Ip"),
+                    },
+                    {
+                        path:"/system",
+                        name:i18n.t("common:SystemInfo"),
+                    }
+                ]
             }
         ],
     },

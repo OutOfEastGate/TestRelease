@@ -205,3 +205,30 @@ interface Ip{
 interface Script{
     script:string
 }
+
+interface AllStoresRes extends BaseRes{
+    data:{
+        stores:Store[]
+    }
+}
+
+interface Store{
+    id:string
+    name:string
+    created_at:string
+    updated_at:string
+    deleted_at:string
+}
+
+interface systemInfoRes extends BaseRes{
+    data:SystemInfo
+}
+
+interface SystemInfo{
+    cpuNum:number;
+    cpuThreadNum:number;
+    systemRuntime:string;
+    totalMemory:string;
+    memoryUsage:number;
+    jvmMemoryUsage:number;
+}

@@ -37,6 +37,10 @@
             <groupId>cn.xuyanwu</groupId>
             <artifactId>spring-file-storage</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

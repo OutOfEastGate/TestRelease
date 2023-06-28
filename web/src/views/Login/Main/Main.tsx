@@ -1,8 +1,8 @@
 import React, { ChangeEvent, useState, useMemo} from 'react';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Checkbox, Form, Input, notification } from 'antd';
+import { Checkbox, Form, Input, notification } from 'antd';
 import type { NotificationPlacement } from 'antd/es/notification/interface';
-import {loginAPI, getCasdoorLoginUrlAPI, visitorLogin} from '@/request/api';
+import { getCasdoorLoginUrlAPI, visitorLogin} from '@/request/api';
 import {showMessage} from "@/components/Setting";
 const Context = React.createContext({ name: 'Default' });
 

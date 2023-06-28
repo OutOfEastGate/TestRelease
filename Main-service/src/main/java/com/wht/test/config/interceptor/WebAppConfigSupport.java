@@ -20,4 +20,5 @@ public class WebAppConfigSupport extends WebMvcConfigurationSupport {
     protected void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(loginInterceptor).addPathPatterns("/api/**");
     }
+
 }

@@ -8,9 +8,11 @@
     "File": "File",
     "FileType": "FileType",
     "GlobalChat": "Global Chat",
+    "PermissionCenter": "Permission Center",
     "success": "success",
     "SelectLanguage": "Select Language",
     "Script": "Script",
+    "SystemInfo": "SystemInfo",
     "Homepage": "Homepage",
     "Ip": "IP Message",
     "MessageList": "MessageList",
@@ -27,5 +29,9 @@
   "info": {
     "Announcement": "Announcement",
     "GotoChatPage": "GotoChatPage"
+  },
+  "permission": {
+    "ModelManage": "Model Manage",
+    "StoreManage": "Store Manage"
   }
 }

@@ -62,3 +62,6 @@ export const getOnlineUserNum = ():Promise<NumRes> => request.get("/getOnlineUse
 export const getScript =():Promise<StrRes> => request.get("/getScript")
 
 export const updatePolicy = (script:Script):Promise<StrRes> => request.post("/updatePolicy", script)
+
+export const getAllStores = ():Promise<AllStoresRes> => request.get("/permission/getAllStores")
+export const getSystemInfo = ():Promise<systemInfoRes> => request.get("/systemInfo")

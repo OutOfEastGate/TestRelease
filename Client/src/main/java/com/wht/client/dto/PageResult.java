@@ -2,6 +2,7 @@ package com.wht.client.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * description:
@@ -9,6 +10,7 @@ import lombok.Data;
  * @author wht
  * @createDate 2023/5/13 11:07
  */
+@NoArgsConstructor
 @AllArgsConstructor
 @Data
 public class PageResult<T> {

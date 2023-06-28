@@ -8,9 +8,11 @@
     "File": "文件管理",
     "FileType": "文件类型管理",
     "GlobalChat": "全局聊天",
+    "PermissionCenter": "权限中台",
     "success": "成功",
     "SelectLanguage": "选择语言",
     "Script": "脚本控制",
+    "SystemInfo": "系统信息",
     "Homepage": "主页",
     "Ip": "IP 信息",
     "MessageList": "留言",
@@ -27,5 +29,9 @@
   "info": {
     "Announcement": "通知公告",
     "GotoChatPage": "去往公共聊天室"
+  },
+  "permission": {
+    "ModelManage": "模型管理",
+    "StoreManage": "模型存储管理"
   }
 }

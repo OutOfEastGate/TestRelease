@@ -81,7 +81,7 @@ public class ArticleService {
 
     public ArticleDo getArticleById(String id) {
         Optional<ArticleDo> articleDoOptional = articleRepository.findById(id);
-        if (articleDoOptional.isEmpty()){
+        if (articleDoOptional.isEmpty()) {
             throw new CustomException(ErrorCode.ARTICLE_NOT_EXIST);
         }
         return articleDoOptional.get();

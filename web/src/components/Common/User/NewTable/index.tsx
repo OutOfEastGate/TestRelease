@@ -144,7 +144,6 @@ class UserTable extends React.Component<any,any> {
                     }}
                 />
             </>
-
         )
     }
 }

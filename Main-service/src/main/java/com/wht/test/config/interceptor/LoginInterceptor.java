@@ -41,7 +41,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         //跨域
         setCorsConfig(response);
         //ip限流
-//        ipLimitCheck.ipLimitCheck(request);
+        ipLimitCheck.ipLimitCheck(request);
         String requestURI = request.getRequestURI();
         String token = request.getHeader("Authorization");
         if (!(handler instanceof HandlerMethod)) {
