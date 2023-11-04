@@ -9,6 +9,7 @@ import openfga.v1.OpenFGAServiceGrpc;
 import openfga.v1.Openfga;
 import openfga.v1.OpenfgaService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,6 +27,11 @@ public class PermissionController {
     @GetMapping("/getAllStores")
     public Result<AllStoresRes> getAllStores() {
         return Result.success(fgaService.getAllStores());
+    }
+
+    @GetMapping("/{store_id}/getAllModels")
+    public Result<Object> getAllModels(@PathVariable("store_id") String store_id) {
+        return Result.success(fgaService.getAllModels(store_id));
     }
 
     @GetMapping("/grpc/getAllStores")

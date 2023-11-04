@@ -2,6 +2,7 @@
   "common": {
     "Announcement": "全局通知管理",
     "Article": "文章管理",
+    "ArticlePage": "文章列表",
     "BlogManagement": "博客管理平台",
     "Chat": "聊天",
     "Edit": "编辑器",

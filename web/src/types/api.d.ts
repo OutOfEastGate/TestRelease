@@ -212,6 +212,12 @@ interface AllStoresRes extends BaseRes{
     }
 }
 
+interface AllModals extends BaseRes{
+    data:{
+        authorization_models:object
+    }
+}
+
 interface Store{
     id:string
     name:string
@@ -231,4 +237,56 @@ interface SystemInfo{
     totalMemory:string;
     memoryUsage:number;
     jvmMemoryUsage:number;
+}
+
+interface GetHistoryTodayRes extends BaseRes{
+    data:{
+        result:GetHistoryToday[]
+    }
+}
+
+interface GetHistoryToday{
+    year:number
+    title:string
+    desc:string
+    link:string
+}
+interface GetWeatherRes extends BaseRes{
+    data: {
+        result:Weather
+    }
+}
+interface Weather{
+    city:{
+        counname:string
+        name:string
+        pname:string
+    },
+    condition:{
+        condition:string
+        tips:string
+        sunRise:string
+        sunSet:string
+        windDir:string
+        windLevel: number
+    },
+    forecast:Forecast[]
+}
+interface Forecast{
+    conditionDay:string
+    conditionNight:string
+    predictDate:string
+}
+
+interface Website{
+    id:string
+    name:string
+    link:string
+    desc:string
+    icon:string
+    title:string
+}
+
+interface getAllWebsiteRes extends BaseRes{
+    data:Website[]
 }

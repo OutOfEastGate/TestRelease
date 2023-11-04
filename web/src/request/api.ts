@@ -64,4 +64,18 @@ export const getScript =():Promise<StrRes> => request.get("/getScript")
 export const updatePolicy = (script:Script):Promise<StrRes> => request.post("/updatePolicy", script)
 
 export const getAllStores = ():Promise<AllStoresRes> => request.get("/permission/getAllStores")
+
+//获取所有模型
+export const getAllModals = (id:string):Promise<AllModals> => request.get("/permission/" + id + "/getAllModels")
+
+//获取历史上的今天
+export const getHistoryToday = ():Promise<GetHistoryTodayRes> => request.get("/api/getHistoryToday")
+
+export const getWeather = ():Promise<GetWeatherRes> => request.get("/api/getWeather")
 export const getSystemInfo = ():Promise<systemInfoRes> => request.get("/systemInfo")
+
+export const addWebsite =(webSite:Website):Promise<BaseRes> => request.post("/website/addWebsite", webSite)
+
+export const getAllWebsite =():Promise<getAllWebsiteRes> => request.get("/website/getAllWebsite")
+
+export const deleteWebsite =(id:string):Promise<BaseRes> => request.post("/website/deleteWebsite",{id:id})

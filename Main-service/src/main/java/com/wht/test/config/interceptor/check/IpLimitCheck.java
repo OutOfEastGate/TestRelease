@@ -25,8 +25,8 @@ public class IpLimitCheck {
     public Boolean ipLimitCheck(HttpServletRequest request) {
         String remoteIp = request.getRemoteHost();
         if ("0:0:0:0:0:0:0:1".equals(remoteIp)) remoteIp = "127.0.0.1";
-        //ip限流，100秒200次
-        Boolean isAllowed = redisTemplate.execute(ipLimitLua, Lists.newArrayList(remoteIp), 5, 100);
+        //ip限流，4秒200次
+        Boolean isAllowed = redisTemplate.execute(ipLimitLua, Lists.newArrayList(remoteIp), 4, 100);
         if (Boolean.FALSE.equals(isAllowed)) {
             throw new CustomException(ErrorCode.IP_LIMIT);
         }

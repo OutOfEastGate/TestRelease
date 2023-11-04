@@ -12,7 +12,6 @@ import MessageList from "@/components/Common/Comments/index";
 import ChatRoom from "@/components/Common/Chat"
 import File from "@/components/Common/File"
 import FileType from "@/components/Common/File/FileType";
-import HomePage from "@/components/Common/HomePage";
 import Notification from "@/components/Common/Notification"
 import Ip from "@/components/Common/Ip";
 import Announcement from "@/components/Common/Notification/Announcement";
@@ -20,6 +19,8 @@ import Store from "@/components/Common/Permission/Store";
 // @ts-ignore
 import Script from "@/components/Common/Script";
 import System from "@/components/Common/System";
+import HomePage from "@/components/Common/HomePage";
+import ArticlePage from "@/components/Common/Article/ArticlePage";
 
 const routes = [
     {
@@ -40,11 +41,15 @@ const routes = [
         children:[
             {
                 path: "/homepage",
-                element: <HomePage />
+                element: <HomePage/>
             },
             {
                 path: "/article",
                 element: <Article />
+            },
+            {
+                path: "/articlePage",
+                element: <ArticlePage/>
             },
             {
                 path: "/article/:articleId",

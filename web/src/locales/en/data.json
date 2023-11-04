@@ -2,6 +2,7 @@
   "common": {
     "Announcement": "Announcement",
     "Article": "Article",
+    "ArticlePage": "Article Page",
     "BlogManagement": "Blog Management",
     "Chat": "Chat",
     "Edit": "Edit",

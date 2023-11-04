@@ -3,9 +3,11 @@ package com.wht.test.service;
 import com.wht.client.exception.CustomException;
 import com.wht.client.exception.ErrorCode;
 import com.wht.client.form.task.AddTaskForm;
+import com.wht.test.config.runtime.TaskRuntime;
 import jakarta.mail.internet.MimeMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.TaskScheduler;
@@ -25,20 +27,8 @@ import java.util.Date;
 @Service
 public class TaskService {
 
-    private TaskScheduler taskScheduler;
 
-    JavaMailSenderImpl javaMailSender;
-
-    @Autowired
-    public void setTaskExecutor(TaskScheduler taskScheduler) {
-        this.taskScheduler = taskScheduler;
-    }
-    @Autowired
-    public void setJavaMailSender(JavaMailSenderImpl javaMailSender) {
-        this.javaMailSender = javaMailSender;
-    }
-
-    public void addTask(AddTaskForm addTaskForm) {
+    public void addTask(TaskRuntime taskRuntime, AddTaskForm addTaskForm) {
         String deadlineString = addTaskForm.getDeadline();
         String pattern = "yyyy-MM-dd HH:mm:ss";
 
@@ -53,7 +43,8 @@ public class TaskService {
         if (deadline.before(now)) {
             throw new CustomException(ErrorCode.TIME_EXISTED);
         }
-        taskScheduler.schedule(() -> {
+        JavaMailSender javaMailSender = taskRuntime.getJavaMailSender();
+        taskRuntime.getTaskScheduler().schedule(() -> {
             MimeMessage mimeMessage = javaMailSender.createMimeMessage();
             MimeMessageHelper helper;
             try {
@@ -66,10 +57,12 @@ public class TaskService {
                 helper.setText(text, true);
                 //接受者
                 helper.setTo(addTaskForm.getEmail());
-                helper.setFrom(javaMailSender.getUsername());
+                helper.setFrom("1946066280@qq.com");
                 javaMailSender.send(mimeMessage);
-            }catch (Exception e) {
+                log.error("邮件发送成功");
+            } catch (Exception e) {
                 log.error("邮件发送失败");
+                e.printStackTrace();
                 throw new CustomException(ErrorCode.MAIL_ERROR);
             }
         }, deadline.toInstant());

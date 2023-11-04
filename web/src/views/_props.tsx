@@ -6,10 +6,10 @@ import {
     SmileFilled,
     TabletFilled, TeamOutlined, UserOutlined,
 } from '@ant-design/icons';
-import HomePage from "@/components/Common/HomePage";
 import {MenuProps} from "antd";
 import i18n from "i18next";
 import Announcement from "@/components/Common/Notification/Announcement";
+import HomePage from "@/components/Common/HomePage";
 type MenuItem = Required<MenuProps>['items'][number];
 
 function getItem(
@@ -36,11 +36,28 @@ export default {
                 name: i18n.t("common:Homepage"),
                 icon: <SmileFilled />,
                 component: <HomePage />,
+
             },
             {
                 path: '/article',
                 name: i18n.t("common:Article"),
                 icon: <CrownFilled />,
+                routes:[
+                    {
+                        path: "/articlePage",
+                        name: i18n.t("common:ArticlePage"),
+                    },
+                    {
+                        path: "/article",
+                        name: i18n.t("common:Article"),
+                    },
+                    {
+                        path: "/edit",
+                        name: i18n.t("common:Edit"),
+                        icon: <ChromeFilled />,
+                    },
+                ]
+
             },
             {
                 name: i18n.t("common:Users"),
@@ -66,16 +83,6 @@ export default {
                 ]
             },
             {
-                path: "/edit",
-                name: i18n.t("common:Edit"),
-                icon: <ChromeFilled />,
-            },
-            {
-                path: "/messageList",
-                name: i18n.t("common:MessageList"),
-                icon: <DesktopOutlined />,
-            },
-            {
                 path: "/chatManage",
                 name: i18n.t("common:Chat"),
                 icon: <TeamOutlined />,
@@ -84,6 +91,11 @@ export default {
                         path: "/chat",
                         name: i18n.t("common:GlobalChat"),
                         icon: <ChromeFilled />,
+                    },
+                    {
+                        path: "/messageList",
+                        name: i18n.t("common:MessageList"),
+                        icon: <DesktopOutlined />,
                     },
                 ]
             },
@@ -108,6 +120,11 @@ export default {
                 icon: <ControlOutlined />,
                 routes:[
                     {
+                        path: '/script',
+                        name: i18n.t("common:Script"),
+                        icon: <BugOutlined />,
+                    },
+                    {
                         path:"/store",
                         name:i18n.t("permission:StoreManage"),
                     },
@@ -117,11 +134,7 @@ export default {
                     }
                 ]
             },
-            {
-                path: '/script',
-                name: i18n.t("common:Script"),
-                icon: <BugOutlined />,
-            },
+
             {
                 path: '/ip',
                 name: i18n.t("common:SystemInfo"),

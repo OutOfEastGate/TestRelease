@@ -5,7 +5,7 @@ spring:
   mail:
     default-encoding: UTF-8
     username: ${wht.back.qq}@qq.com
-    password: hyvpbnluecdpbajb
+    password: vpvjfotrejnkjgch
     properties:
       mail:
         smtp:
@@ -24,8 +24,10 @@ spring:
 
 wht:
   fga:
-    url: http://192.168.240.128:8080
+    url: http://114.116.9.68:8082
+  api:
+    url: https://api.oioweb.cn
   back:
     domain: www.wanghongtao.xyz
-    qq: ''
-    endpoint: ‘’
+    qq: 1946066280
+    endpoint: 114.116.9.68
