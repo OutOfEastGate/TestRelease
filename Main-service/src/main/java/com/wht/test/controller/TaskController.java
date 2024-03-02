@@ -1,13 +1,15 @@
 package com.wht.test.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wht.client.Result;
 import com.wht.client.form.task.AddTaskForm;
 import com.wht.client.form.task.UpdatePolicyForm;
-import com.wht.test.config.executor.TaskExecutorConfig;
+import com.wht.test.config.runtime.JacksonUtils;
 import com.wht.test.config.runtime.TaskRuntime;
 import com.wht.test.service.TaskService;
 import groovy.lang.GroovyClassLoader;
 import groovy.lang.GroovyObject;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.scheduling.TaskScheduler;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
  * @author wht
  * @createDate 2023/5/20 10:53
  */
+@Slf4j
 @RequestMapping("/api")
 @RestController
 public class TaskController {
@@ -66,7 +69,11 @@ public class TaskController {
                 e.printStackTrace();
             }
         }
-        return Result.success(taskScript.invokeMethod("hello",null));
+        log.info("execute script start, {}", updatePolicyForm.getScript());
+        Object result = taskScript.invokeMethod("fn", null);
+        String json = JacksonUtils.toJson(result);
+        log.info("execute script end,res: {}", json);
+        return Result.success(json);
     }
 
     @GetMapping("/getScript")

@@ -21,6 +21,7 @@ import Script from "@/components/Common/Script";
 import System from "@/components/Common/System";
 import HomePage from "@/components/Common/HomePage";
 import ArticlePage from "@/components/Common/Article/ArticlePage";
+import Graph from "@/components/Common/Permission/Graph";
 
 const routes = [
     {
@@ -110,6 +111,10 @@ const routes = [
             {
                 path: "/system",
                 element: <System></System>
+            },
+            {
+                path: "/model",
+                element: <Graph isModalOpen={true}></Graph>
             }
         ]
     },

@@ -79,3 +79,5 @@ export const addWebsite =(webSite:Website):Promise<BaseRes> => request.post("/we
 export const getAllWebsite =():Promise<getAllWebsiteRes> => request.get("/website/getAllWebsite")
 
 export const deleteWebsite =(id:string):Promise<BaseRes> => request.post("/website/deleteWebsite",{id:id})
+
+export const getGraphView = ():Promise<any> => request.get("/permission/getGraphView")

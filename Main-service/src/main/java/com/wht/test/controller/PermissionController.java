@@ -3,7 +3,9 @@ package com.wht.test.controller;
 import com.alibaba.fastjson.JSON;
 import com.wht.client.Result;
 import com.wht.client.dto.fga.AllStoresRes;
+import com.wht.client.dto.graph.GraphDto;
 import com.wht.test.service.FgaService;
+import com.wht.test.service.GraphService;
 import lombok.AllArgsConstructor;
 import openfga.v1.OpenFGAServiceGrpc;
 import openfga.v1.Openfga;
@@ -22,6 +24,8 @@ public class PermissionController {
     private final FgaService fgaService;
 
     private final OpenFGAServiceGrpc.OpenFGAServiceBlockingStub fgaServiceBlockingStub;
+
+    private final GraphService graphService;
 
 
     @GetMapping("/getAllStores")
@@ -42,4 +46,10 @@ public class PermissionController {
         List<Openfga.Store> storesList = listStoresResponse.getStoresList();
         return Result.success(storesList);
     }
+
+    @GetMapping("/getGraphView")
+    public Result<GraphDto> getGraphView() {
+        return Result.success(graphService.getGraphView());
+    }
+
 }
